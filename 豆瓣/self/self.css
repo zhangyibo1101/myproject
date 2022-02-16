@@ -1,0 +1,237 @@
+a {
+    text-decoration: none;
+}
+
+/* 登录状态 */
+.header_right1 {
+    position: relative;
+}
+
+.myself {
+    display: none;
+    width: 88px;
+    height: 140px;
+    padding: 10px 0;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+
+.myself li {
+    width: 88px;
+    height: 28px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 特效 */
+.myself li:hover {
+    background-color: #e6e6e6;
+}
+
+
+/* 导航栏 */
+.nav {
+    height: 74px;
+    background: #edf4ed;
+}
+.mid {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 1040px;
+    height: 74px;
+    margin: 0 auto;
+}
+.beams {
+    width: 150px;
+    height: 30px;
+}
+.mid ul { 
+    display: flex;
+    justify-content: space-around;
+    width: 315px;
+    height: 56px;
+    margin-left: 20px;
+}
+.mid li {
+    display: inline-block;
+    list-style: none;
+    line-height: 56px;
+}
+.mid a {
+    font-size: 16px;
+    color: #072;
+}
+.mid a:hover {
+    background-color: #072;
+    color: #fff;
+}
+.mid input {
+    position: absolute;
+    right: 0;
+    width: 280px;
+    height: 28px;
+    padding-left: 15px;
+}
+.searcher {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 28px;
+}
+/* 正文部分 */
+.profile {
+    width: 675px;
+    height: 120px;
+}
+.profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+h1 {
+    font-size: 26px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+.profile ul {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 100px;
+    width: 354px;
+    height: 21px;
+}
+.profile li {
+    display: inline-block;
+    color: #37a;
+    font-size: 14px;
+}
+.profile li:hover {
+    background-color: #37a;
+    color: #fff;
+}
+.intro {
+    width: 675px;
+    margin-top: 30px;
+}
+.hd {
+    width: 675px;
+    height: 22px;
+    color: #072;
+    margin-top: 30px;
+}
+.plus {
+    float: right;
+    height: 22px;
+    width: 82px;
+    text-align: center;
+    color: #777;
+    background: #fcf7f3;
+    line-height: 22px;
+    border: 1px solid #edded4;
+    border-radius: 2px;
+}
+/* 自我介绍 */
+.dairy {
+    font-size: 13px;
+    margin-top: 20px;
+}
+/* 影评 */
+.commends {
+    width: 675px;
+    height: 150px;
+    margin-top: 30px;
+}
+.commendimg {
+    float: left;
+    width: 90px;
+    height: 126px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    vertical-align: top;
+}
+.commendtitle {
+    display: inline-block;
+    width: 570px;
+    font-size: 14px;
+}
+.commendbd {
+    display: inline-block;
+    width: 570px;
+    margin: 7px 0;
+    color: #666;
+    font-size: 14px;
+}
+.commendcontext {
+    width: 570px;
+    height: 80px;
+    overflow: hidden;
+    margin-top: 8px;
+    line-height: 20px;
+    font-size: 14px;
+}
+/* 想看、看过 */
+.wanto {
+    width: 675px;
+    height: 128px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.wanto li {
+    float: left;
+    height: 128px;
+    color: #acacac;
+    font-size: 13px;
+    line-height: 128px;
+}
+.wanto img {
+    width: 85px;
+    height: 128px;
+    margin: 0 0 20px 35px;
+}
+textarea {
+    outline: none;
+    resize: none;
+    width: 675px;
+    height: 58px;
+    border: 1px solid #ccc;
+    margin:15px 0;
+    font-size: 14px;
+}
+.info {
+    box-sizing: border-box;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 13px;
+    background: #fff6ed;
+    border: 1px solid #faefe3;
+}
+.info img {
+    width: 132px;
+    height: 132px;
+    vertical-align: top;
+}
+.mess {
+    display: inline-block;
+    width: 140px;
+    height: 130px;
+}
+.line {
+    height: 2px;
+    width: 270px;
+    margin: 10px auto;
+   background-color: #faefe3;
+}
+.broadcast {
+    width: 300px;
+    height: 20px;
+    color: #072;
+    margin-bottom: 50px;
+}

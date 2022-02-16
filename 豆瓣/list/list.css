@@ -1,0 +1,156 @@
+h1 {
+    width: 1040px;
+    margin: 0 auto;
+    font-size: 26px;
+    color: #494949;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.hd {
+    font-size: 16px;
+    color: #072;
+    margin: 0 0 12px 0;
+    line-height: 150%;
+}
+
+.movie {
+    width: 675px;
+    height: 130px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px dashed #DDDDDD;
+}
+
+.movie img {
+    float: left;
+    width: 75px;
+    height: 112px;
+    padding-right: 20px;
+}
+
+.title {
+    color: #37a;
+    font-size: 13px;
+}
+
+.context {
+    width: 571px;
+    height: 60px;
+    line-height: 20px;
+    overflow: hidden;
+    font-size: 13px;
+    color: #666666;
+    margin: 15px 0;
+}
+
+.stars {
+    display: inline-block;
+    width: 110px;
+    height: 22px;
+    background: url('./stars.png');
+    zoom: 0.5;
+}
+
+.marks {
+    color: #e09015;
+    font-size: 12px;
+    padding: 0 3px;
+}
+
+.peonum {
+    font-size: 13px;
+}
+
+.classlistarea {
+    width: 300px;
+    font-size: 0;
+    margin-bottom: 20px;
+}
+
+.classlistarea a {
+    display: inline-block;
+    width: 50px;
+    color: #37a;
+    font-size: 12.5px;
+    margin-top: 10px;
+}
+.weeklist,.northlist {
+    margin-bottom: 30px;
+}
+.weeklist li,.northlist li {
+    width: 300px;
+    height: 22px;
+    border-bottom: 1px dashed #ddd;
+    padding: 0 0 7px 0;
+    margin-bottom: 7px;
+    line-height: 14px;
+}
+.no {
+    float: left;
+    width: 20px;
+    font-size: 9px;
+    text-align: center;
+}
+.listname {
+    width: 240px;
+    color: #37a;
+}
+.boxoffice {
+    float: right;
+    font-size: 11px;
+    color: #494949;
+}
+.toplist {
+    width: 300px;
+    height: 450px;
+    font-size: 0;
+}
+.toplist li {
+    width: 65px;
+    height: 130px;
+    font-size: 13px;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    vertical-align: top;
+}
+.toplist li img {
+    width: 65px;
+    height: 92px;
+}
+.name a{
+    display: inline-block;
+    font-size: 13px;
+    color: #37a;
+    width: 75px;
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+/* 登录状态 */
+.header_right1 {
+    position: relative;
+}
+
+.myself {
+    display: none;
+    width: 88px;
+    height: 140px;
+    padding: 10px 0;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    position: absolute;
+    top: 28px;
+    left: 0;
+}
+.myself li {
+    width: 88px;
+    height: 28px;
+    font-size: 12px;
+    text-align: center;
+}
+/* 特效 */
+.myself li:hover {
+    background-color:  #e6e6e6;
+}

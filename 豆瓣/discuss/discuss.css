@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+textarea:nth-child(1) {
+    outline: none;
+    border: none;
+    border-bottom:1px solid #ccc;
+    resize: none;
+    width: 630px;
+    height: 22px;
+    font-size: 1.3333em;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+textarea:nth-child(2) {
+    outline: none;
+    border: none;
+    resize: none;
+    font-size: 14px;
+    width: 630px;
+    height: 500px;
+    margin-top: 20px;
+}
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+}
+ header img {
+    width: 630px;
+    height: 40px;
+    margin-left: 400px;
+}
+.submit {
+    float: right;
+    width: 64px;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #3db04d;
+    font-size: 12px;
+    line-height: 40px;
+}
+article {
+    width: 630px;
+    margin: 0 auto;
+}
+.card {
+    width: 590px;
+    height: 62px;
+    margin: 0 20px 30px;
+    background-color: #f8f8f8;
+}
+.card img {
+    vertical-align: middle;
+    width: 48px;
+    height: 62px;
+}
+.card div {
+    display: inline-block;
+    color: #37a;
+    font-size: 14px;
+}
+.editor {
+    width: 630px;
+    height: 500px;
+}

@@ -1,0 +1,44 @@
+h1 {
+    width: 1040px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 25px;
+    color: #494949;
+}
+.harvest {
+    width: 675px;
+    height: 90px;
+    margin-bottom: 30px;
+}
+.harvest img {
+    float: left;
+    width: 48px;
+    height: 72px;
+}
+.detail {
+    float: right;
+    width: 612px;
+    height: 90px;
+}
+.detial a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #37a;
+}
+.glod {
+    color: #e09015;
+    font-size: 12px;
+    padding: 0 3px;
+}
+.peo {
+    color: #666666;
+    font-size: 12px;
+}
+.abstract {
+    width: 612px;
+    height: 15px;
+    color: #999;
+    font-size: 12px;
+    line-height: 15px;
+    overflow: hidden;
+}

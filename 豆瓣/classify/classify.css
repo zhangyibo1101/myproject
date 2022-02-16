@@ -1,0 +1,70 @@
+h1 {
+    width: 1040px;
+    margin: 0 auto;
+    color: #333;
+    font-size: 25px;
+    height: 36px;
+    margin-bottom: 25px;
+    line-height: 36px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+.tag {
+    width: 700px;
+    height: 311px;
+}
+.category {
+    width: 700px;
+    margin-bottom: 17px;
+}
+.category span {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 10px;
+    line-height: 20px;
+    border-radius: 2px;
+    display: inline-block;
+    color: #333;
+    margin-right: 4px;
+    padding-top: 3px;
+}
+.moviearea {
+    width: 675px;
+    font-size: 0;
+    margin-top: 50px;
+}
+.moviearea li {
+    display: inline-block;
+    width: 115px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.moviearea img {
+    width: 115px;
+    height: 161px;
+}
+.moviename {
+    display: inline-block;
+    color: #333;
+    line-height: 18px;
+    padding-right: 15px;
+    font-size: 13px;
+    overflow: hidden;
+    width: 115px;
+    height: 18px;
+}
+.moviemarks {
+    color: #ffac2d;
+    line-height: 18px;
+    padding-right: 15px;
+    margin: 8px 0 20px;
+    font-size: 13px;
+}
+.warn {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 100px;
+    color: gainsboro;
+}

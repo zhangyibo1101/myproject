@@ -1,0 +1,51 @@
+ export class Marks{
+    constructor(id,zoom,num){
+        this.id=id;
+        this.zoom=zoom;
+        this.container=document.getElementById(id);
+        this.container.innerHTML=this.render();
+        this.num=num;
+    }
+    render(){
+        this.container.style.width='160x';
+        this.container.style.height='32px';
+        this.container.style.zoom=this.zoom;
+        this.container.style.display='inline-block';
+        return `<img src="" class='mystar' style="width:32px;height:32px;">`.repeat(5)
+    }
+    clear=()=>{
+        Array.from(this.stars).map(star=>{
+            star.src="http://127.0.0.1:5500/mymodule/nostar.png"
+        })
+    }
+    choose=(id)=>{
+        Array.from(this.stars).filter(star=>star.id<=id).map(star=>{
+            star.src='http://127.0.0.1:5500/mymodule/yellowstar.png';
+        })
+    }
+    changeon=(e)=>{
+        this.clear();
+        this.choose(e.target.id)
+    }
+    changeoff=()=>{
+        this.clear();
+        this.choose(this.num);
+    }
+    
+    start(){
+        this.stars=this.container.querySelectorAll('.mystar');
+        this.changeoff();
+        Array.from(this.stars).map((star,idx)=>{
+            star.id=`${idx}`;
+            star.addEventListener('mouseover',this.changeon)
+            star.addEventListener('mouseout',this.changeoff)
+            star.addEventListener('click',()=>{
+                this.num=idx;
+            })
+        })
+    }
+    stop(){
+        this.clear();
+        this.num=-1;
+    }
+}

@@ -4,7 +4,7 @@ let myself = document.querySelector('.myself');
 let quit = document.getElementById('quit');
 let mine = document.getElementById('mine');
 let token = sessionStorage.getItem('token');
-let basicURL='http://127.0.0.1:5500';
+let basicURL='';
 // console.log(token)
 if (username) {
     login.innerHTML = username + '你好！';

@@ -9,7 +9,7 @@ let submit = document.querySelector('.submit');
 let texts = document.querySelectorAll('textarea');
 let mytoken = sessionStorage.getItem('token');
 let num=sessionStorage.getItem('num');
-let basicURL='http://127.0.0.1:5500';
+let basicURL='';
 // 评分功能
 const tomarks=new Marks('marks',0.5,-1)
 tomarks.start();

@@ -3,7 +3,6 @@ import {
   } from '../mymodule/stars.js'
 let res=document.querySelector('.res');
 let result=JSON.parse(sessionStorage.getItem('searchresult')).movie;
-console.log(result);
 let h1=document.querySelector('h1');
 h1.innerHTML+=' '+sessionStorage.getItem('searchthing')
 result.map(item=>{
@@ -24,6 +23,14 @@ result.map(item=>{
                 </ul>`
                 let star=new Star(`star${item.Name}`,item.Score,0.5);
                 star.create();
+})
+let harvest=document.querySelectorAll('.harvest');
+result.map((item,index)=>{
+    console.log(item.Id);
+    harvest[index].addEventListener('click',()=>{
+        sessionStorage.setItem('movieid',item.Id);
+        window.open('/movie-details/build01/detail.html')
+    })
 })
 
 //动态更新背景

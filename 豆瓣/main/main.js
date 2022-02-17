@@ -56,6 +56,15 @@ window.onload = async function () {
                 stars.create();
             })
             myslider1.clone(0, 5);
+            return res;
+        }).then(res=>{
+            res.data.map((item,index)=>{
+                let slider1li=document.querySelectorAll('#slider1li')
+                slider1li[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('movieid',item.Id)
+                    window.open(basicURL + '/movie-details/build01/detail.html')
+                })
+            })
         })
     await fetch('http://42.192.155.29:8080/brief2', {
             method: 'GET',
@@ -73,6 +82,15 @@ window.onload = async function () {
             })
             myslider2.clone(0, 5);
             myslider2.clone(25, 30);
+            return res;
+        }).then(res=>{
+            res.data.map((item,index)=>{
+                let slider1li=document.querySelectorAll('.slider2 #slider2a')
+                slider1li[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('movieid',item.Id)
+                    window.open(basicURL + '/movie-details/build01/detail.html')
+                })
+            })
         })
     await fetch('http://42.192.155.29:8080/brief3', {
             method: 'GET',
@@ -90,34 +108,17 @@ window.onload = async function () {
             })
             myslider3.clone(0, 5);
             myslider3.clone(25, 30);
-        })
-    let liforall = document.querySelectorAll('.clone')
-
-    function getinfo(min, max, diff) {
-        for (let num = min; num < max; num++) {
-            let truenum = num - diff;
-            liforall[num - 1].addEventListener('click', () => {
-                sessionStorage.setItem('num', truenum);
-                async function sendbyfetch2() {
-                    let res1 = await newfetch2('http://42.192.155.29:8080/movie/' + truenum);
-                    sessionStorage.setItem('movie', JSON.stringify(res1));
-                    let res2 = await newfetch2('http://42.192.155.29:8080/topic/movie/' + truenum);
-                    sessionStorage.setItem('discuss', JSON.stringify(res2));
-                    let res3 = await newfetch2('http://42.192.155.29:8080/shortcomment/movie/' + truenum);
-                    sessionStorage.setItem('short', JSON.stringify(res3));
-                    let res4 = await newfetch2('http://42.192.155.29:8080/filmcomment/movie/' + truenum);
-                    sessionStorage.setItem('filecomment', JSON.stringify(res4));
+            return res;
+        }).then(res=>{
+            res.data.map((item,index)=>{
+                let slider1li=document.querySelectorAll('.slider3 #slider2a')
+                slider1li[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('movieid',item.Id)
                     window.open(basicURL + '/movie-details/build01/detail.html')
-                }
-                sendbyfetch2();
+                })
             })
-        }
-    }
-    getinfo(1, 11, 0);
-    getinfo(41, 46, 5);
-    getinfo(66, 71, 5);
-    getinfo(101, 106, 15);
-    getinfo(126, 131, 15);
+        })
+
     await fetch('http://42.192.155.29:8080/recommend', {
             method: 'GET',
         }).then(res => res.json())

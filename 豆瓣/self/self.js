@@ -31,8 +31,7 @@ selfinfo2[0].HaveWatchedURL.split(',').map(item => {
 })
 //影评
 let commendarea = document.querySelector('.commendarea');
-console.log(selfinfo3)
-selfinfo3.map(item => {
+selfinfo3.map((item,index) => {
     commendarea.innerHTML += `
     <div class="commends">
                         <img src="${item.URL}" class="commendimg">
@@ -45,9 +44,24 @@ selfinfo3.map(item => {
                         </div>
                         <div class="commendcontext">${item.Context}</div>
                     </div>`
+    // let commends=document.querySelectorAll('.commends');
+    // console.log(commends[index]);
+    // commends[index].addEventListener('click',()=>{
+    //     sessionStorage.setItem('movieid',item.Id)
+    //     window.open('/movie-details/build01/detail.html')
+    // })
     let mystar = new Star(`stars${item.Id}`, item.StarNum, 0.5);
     mystar.create();
 })
+selfinfo3.map((item,index)=>{
+    let commends=document.querySelectorAll('.commends');
+    console.log(commends[index]);
+    commends[index].addEventListener('click',()=>{
+        sessionStorage.setItem('movieid',item.Id)
+        window.open('/movie-details/build01/detail.html')
+    })
+})
+
 //动态更新背景
 let wrapper = document.querySelector('.wrapper');
 let content = document.querySelector('.content');

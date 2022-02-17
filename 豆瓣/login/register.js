@@ -64,7 +64,7 @@ button[0].addEventListener('click', () => {
         });
 })
 //密码登录
-let basicURL = 'http://127.0.0.1:5500';
+let basicURL = '';
 let account=document.querySelector('.account');
 let password=document.querySelector('.password');
 button[1].addEventListener('click',()=>{

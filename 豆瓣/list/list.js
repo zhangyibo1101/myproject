@@ -20,6 +20,14 @@ movielist.map(item => {
     let stars = new Star(`${item.Name}`, item.Score, 0.5);
     stars.create();
 })
+let bdmovie=document.querySelectorAll('.bd .movie');
+movielist.map((item,index)=>{
+    bdmovie[index].addEventListener('click',()=>{
+        sessionStorage.setItem('movieid',item.Id);
+        window.open('/movie-details/build01/detail.html');
+    })
+})
+
 //分类排行榜
 let classlist = '剧情 喜剧 动作 爱情 科幻 动画,悬疑 惊悚 恐怖 纪录片 短片 情色,同性 音乐 歌舞 家庭 儿童 传记,历史 战争 犯罪 西部 奇幻 冒险,灾难 武侠 古装 运动 黑色电影';
 let classlistarea = document.querySelector('.classlistarea')

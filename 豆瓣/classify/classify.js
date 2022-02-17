@@ -58,11 +58,18 @@ async function update() {
         moviearea.innerHTML = '';
         res.data.map(
             item => {
-                moviearea.innerHTML += ` <li>
+                moviearea.innerHTML += ` <li class='truemovie'>
             <img data-src="${item.URL}" alt="" class="movieimg"> 
             <span class="moviename">${item.Name}</span>
             <span class="moviemarks">${item.Score}</span>
             </li>`
+            })
+            let truemovie=document.querySelectorAll('.truemovie')
+            res.data.map((item,index)=>{
+                truemovie[index].addEventListener('click',()=>{
+                    sessionStorage.setItem('movieid',item.Id);
+                    window.open('/movie-details/build01/detail.html')
+                })
             })
     } else {
         console.log(res.data)

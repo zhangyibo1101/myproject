@@ -129,24 +129,16 @@ nav img {
 
 .phone {
     width: 280px;
-    height: 37.43px;
+    height: 37px;
     margin-bottom: 10px;
     border: 1px solid #ececec;
 }
 
-.phone div {
-    display: inline-block;
-    text-align: center;
-    line-height: 37.43px;
-    width: 50px;
-    height: 37.43px;
-    vertical-align: middle;
-}
 
 .phone input {
     border-left: 1px solid #ececec;
     width: 220px;
-    height: 25px;
+    height: 35px;
     padding-left: 15px;
 }
 

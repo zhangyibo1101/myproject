@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    font-size: 13px;
+}
 textarea:nth-child(1) {
     outline: none;
     border: none;

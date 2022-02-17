@@ -162,6 +162,7 @@ Array.from(tomark1.stars).map(star=>star.addEventListener('click',()=>{
     smalltips.innerHTML='添加收藏：我看过这部电影';
     havewatch.checked='checked';
     tomark2.num=tomark1.num
+    //手动重新渲染
     tomark2.changeoff();
     tomark1.stop();
 }))

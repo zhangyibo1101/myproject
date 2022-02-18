@@ -17,7 +17,7 @@ if (username) {
     })
     quit.addEventListener('click', () => {
         sessionStorage.removeItem('username');
-        window.location.replace(basicURL+'http://42.192.155.29/')
+        window.location.replace(basicURL+'/main/main.html')
     })
     mine.addEventListener('click', () => {
         window.open(basicURL+'/self/build/self.html')

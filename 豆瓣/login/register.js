@@ -125,7 +125,7 @@ button[1].addEventListener('click', () => {
             if (res.info == '成功') {
                 sessionStorage.setItem('username', account.value);
                 sessionStorage.setItem('token', res.data)
-                location.replace('http://42.192.155.29/')
+                location.replace('/main/main.html')
             } else {
                 location.reload();
             }

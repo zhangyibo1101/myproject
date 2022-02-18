@@ -17,7 +17,7 @@ if (username) {
     })
     quit.addEventListener('click', () => {
         sessionStorage.removeItem('username');
-        window.location.replace('http://42.192.155.29/')
+        window.location.replace('/main/main.html')
     })
 
 }

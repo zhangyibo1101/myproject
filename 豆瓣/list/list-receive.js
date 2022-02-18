@@ -38,7 +38,7 @@ if (username) {
                 let res = await newfetch('http://42.192.155.29:8080/user/user' + num);
                 sessionStorage.setItem('selfinfo' + num, JSON.stringify(res));
             }
-            window.location.replace(basicURL+'/self/build/self.html')
+            window.open(basicURL+'/self/build/self.html')
         }
         sendbyfetch();
     })

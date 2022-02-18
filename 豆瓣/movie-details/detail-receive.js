@@ -17,30 +17,10 @@ if (username) {
     })
     quit.addEventListener('click', () => {
         sessionStorage.removeItem('username');
-        window.location.replace(basicURL+'/main/main.html')
+        window.location.replace(basicURL+'http://42.192.155.29/')
     })
     mine.addEventListener('click', () => {
-        function newfetch(url) {
-            return new Promise((resolve, reject) => {
-                fetch(url, {
-                        method: 'GET',
-                        headers: {
-                            token: token,
-                        }
-                    }).then(res => res.json())
-                    .then(res => resolve(res))
-                    .catch(err => reject(err))
-            })
-        }
-        async function sendbyfetch() {
-            let num = 1;
-            for (; num <= 4; num++) {
-                let res = await newfetch('http://42.192.155.29:8080/user/user' + num);
-                sessionStorage.setItem('selfinfo' + num, JSON.stringify(res));
-            }
-            window.location.replace(basicURL+'/self/build/self.html')
-        }
-        sendbyfetch();
+        window.open(basicURL+'/self/build/self.html')
     })
 
 }

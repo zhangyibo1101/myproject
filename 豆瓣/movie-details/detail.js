@@ -14,6 +14,7 @@ window.onload = async function () {
         }).then(res => res.json())
         .then(res => {
             movie = res.data;
+            sessionStorage.setItem('movie',JSON.stringify(res))
         })
     //电影图、电影名
     let mv = document.getElementById('mv');
@@ -144,134 +145,140 @@ window.onload = async function () {
                 star1.create();
             })
         })
-    //动态更新背景
-    let wrapper = document.querySelector('.wrapper');
-    let content = document.querySelector('.content');
-    let article = document.querySelector('article');
 
-    article.style.height = 'auto'
 
-    let article_style = getComputedStyle(article, null)
-    content.style.height = article_style.height
-    wrapper.style.height = article_style.height
-    let wrapper_style = getComputedStyle(wrapper, null)
-    let content_style = getComputedStyle(content, null)
-    console.log(wrapper_style.height)
-    console.log(content_style.height)
-    console.log(article_style.height)
-}
 
-//讨论区
-let basicURL = '';
-let btns = document.getElementsByTagName('button');
-console.log(btns[1].innerHTML);
-btns[2].addEventListener('click', () => {
-    if (username) {
-        window.location.replace(basicURL + '/discuss/discuss.html')
-    } else {
-        alert('请先登录豆瓣')
-    }
-})
-btns[1].addEventListener('click', () => {
-    if (username) {
-        sessionStorage.setItem('iscommend', true)
-        window.location.replace(basicURL + '/discuss/discuss.html')
-    } else {
-        alert('请先登录豆瓣')
-    }
-})
-
-//查看影人
-let imgs = document.querySelectorAll('.performer img');
-[...imgs].map((image, index) => {
-    image.addEventListener('click', () => {
-        fetch(`http://42.192.155.29:8080/movie/${movie_id}/${movie_id}`, {
-                method: 'GET'
-            }).then(res => res.json())
-            .then(res => {
-                sessionStorage.setItem('performer', JSON.stringify(res))
-                window.location.replace(basicURL + '/performer/build/performer.html')
-            })
+    //讨论区
+    let basicURL = '';
+    let btns = document.getElementsByTagName('button');
+    btns[2].addEventListener('click', () => {
+        if (username) {
+            sessionStorage.setItem('iscommend', false)
+            window.location.replace(basicURL + '/discuss/discuss.html')
+        } else {
+            alert('请先登录豆瓣')
+        }
     })
-})
-//评分
-const tomark1 = new Marks('marks1', 0.5, -1)
-tomark1.start();
-const tomark2 = new Marks('marks2', 0.5, -1)
-tomark2.start();
-Array.from(tomark1.stars).map(star => star.addEventListener('click', () => {
-    springwindow.style.visibility = 'visible';
-    smalltips.innerHTML = '添加收藏：我看过这部电影';
-    havewatch.checked = 'checked';
-    tomark2.num = tomark1.num
-    //手动重新渲染
-    tomark2.changeoff();
-    tomark1.stop();
-}))
-//短评
-btns[0].addEventListener('click', () => {
-    springwindow.style.visibility = 'visible';
-    smalltips.innerHTML = '添加收藏：写短评';
-    havewatch.checked = 'checked';
-})
-//想看、看过
-let springwindow = document.querySelector('.springwindow');
-let gact = document.querySelector('.gact')
-let wanttowatch = document.getElementById('wanttowatch');
-let havewatch = document.getElementById('havewatch');
-let mytoken = sessionStorage.getItem('token');
-let save = document.getElementById('save');
+    btns[1].addEventListener('click', () => {
+        if (username) {
+            sessionStorage.setItem('iscommend', true)
+            window.location.replace(basicURL + '/discuss/discuss.html')
+        } else {
+            alert('请先登录豆瓣')
+        }
+    })
 
-let smalltips = document.querySelector('.smalltips');
-let shortcommend = document.getElementById('shortcommend');
-save.addEventListener('click', () => {
-    if (mytoken) {
-        if (wanttowatch.checked) {
-            fetch('http://42.192.155.29:8080/movie/wtw/' + movie_id, {
-                    method: 'GET',
-                    headers: {
-                        token: mytoken
-                    }
+    //查看影人
+    let imgs = document.querySelectorAll('.performer img');
+    [...imgs].map((image, index) => {
+        image.addEventListener('click', () => {
+            fetch(`http://42.192.155.29:8080/movie/${movie_id}/${movie_id}`, {
+                    method: 'GET'
                 }).then(res => res.json())
-                .then(res => alert('添加想看' + res.info))
-        } else if (havewatch.checked) {
-            fetch('http://42.192.155.29:8080/movie/hw/' + movie_id, {
-                    method: 'GET',
-                    headers: {
-                        token: mytoken
-                    }
-                }).then(res => res.json())
-                .then(res => alert('添加看过' + res.info))
-            if (shortcommend.value) {
-                let formdata = new FormData();
-                formdata.append('context', shortcommend.value);
-                formdata.append('starNum', (tomark2.num + 1) * 2);
-                formdata.append('status', '看过')
-                fetch('http://42.192.155.29:8080/shortcomment/' + movie_id, {
-                        method: 'POST',
+                .then(res => {
+                    sessionStorage.setItem('performer', JSON.stringify(res))
+                    window.location.replace(basicURL + '/performer/build/performer.html')
+                })
+        })
+    })
+    //评分
+    const tomark1 = new Marks('marks1', 0.5, -1)
+    tomark1.start();
+    const tomark2 = new Marks('marks2', 0.5, -1)
+    tomark2.start();
+    Array.from(tomark1.stars).map(star => star.addEventListener('click', () => {
+        springwindow.style.visibility = 'visible';
+        smalltips.innerHTML = '添加收藏：我看过这部电影';
+        havewatch.checked = 'checked';
+        tomark2.num = tomark1.num
+        //手动重新渲染
+        tomark2.changeoff();
+        tomark1.stop();
+    }))
+    //短评
+    btns[0].addEventListener('click', () => {
+        springwindow.style.visibility = 'visible';
+        smalltips.innerHTML = '添加收藏：写短评';
+        havewatch.checked = 'checked';
+    })
+    //想看、看过
+    let springwindow = document.querySelector('.springwindow');
+    let gact = document.querySelector('.gact')
+    let wanttowatch = document.getElementById('wanttowatch');
+    let havewatch = document.getElementById('havewatch');
+    let mytoken = sessionStorage.getItem('token');
+    let save = document.getElementById('save');
+
+    let smalltips = document.querySelector('.smalltips');
+    let shortcommend = document.getElementById('shortcommend');
+    save.addEventListener('click', () => {
+        if (mytoken) {
+            if (wanttowatch.checked) {
+                fetch('http://42.192.155.29:8080/movie/wtw/' + movie_id, {
+                        method: 'GET',
                         headers: {
                             token: mytoken
-                        },
-                        body: formdata
+                        }
                     }).then(res => res.json())
-                    .then(res => alert('添加短评' + res.info))
+                    .then(res => alert('添加想看' + res.info))
+            } else if (havewatch.checked) {
+                fetch('http://42.192.155.29:8080/movie/hw/' + movie_id, {
+                        method: 'GET',
+                        headers: {
+                            token: mytoken
+                        }
+                    }).then(res => res.json())
+                    .then(res => alert('添加看过' + res.info))
+                if (shortcommend.value) {
+                    let formdata = new FormData();
+                    formdata.append('context', shortcommend.value);
+                    formdata.append('starNum', (tomark2.num + 1) * 2);
+                    formdata.append('status', '看过')
+                    fetch('http://42.192.155.29:8080/shortcomment/' + movie_id, {
+                            method: 'POST',
+                            headers: {
+                                token: mytoken
+                            },
+                            body: formdata
+                        }).then(res => res.json())
+                        .then(res => {
+                            alert('添加短评' + res.info)
+                            window.location.reload();
+                        })
+                }
+            } else {
+                alert('请完成表单！')
             }
-        } else {
-            alert('请完成表单！')
-        }
-    } else(alert('请先登录豆瓣！'))
-})
-gact.addEventListener('click', () => {
-    springwindow.style.visibility = 'hidden';
-})
-let ui = document.querySelectorAll('.ui1 a');
-ui[0].addEventListener('click', () => {
-    springwindow.style.visibility = 'visible';
-    smalltips.innerHTML = '添加收藏：我想看这部电影';
-    wanttowatch.checked = 'checked';
-})
-ui[1].addEventListener('click', () => {
-    springwindow.style.visibility = 'visible';
-    smalltips.innerHTML = '添加收藏：我看过这部电影';
-    havewatch.checked = 'checked';
-})
+        } else(alert('请先登录豆瓣！'))
+    })
+    gact.addEventListener('click', () => {
+        springwindow.style.visibility = 'hidden';
+    })
+    let ui = document.querySelectorAll('.ui1 a');
+    ui[0].addEventListener('click', () => {
+        springwindow.style.visibility = 'visible';
+        smalltips.innerHTML = '添加收藏：我想看这部电影';
+        wanttowatch.checked = 'checked';
+    })
+    ui[1].addEventListener('click', () => {
+        springwindow.style.visibility = 'visible';
+        smalltips.innerHTML = '添加收藏：我看过这部电影';
+        havewatch.checked = 'checked';
+    })
+
+     //动态更新背景
+     let wrapper = document.querySelector('.wrapper');
+     let content = document.querySelector('.content');
+     let article = document.querySelector('article');
+ 
+     article.style.height = 'auto'
+ 
+     let article_style = getComputedStyle(article, null)
+     content.style.height = article_style.height
+     wrapper.style.height = article_style.height
+     // let wrapper_style = getComputedStyle(wrapper, null)
+     // let content_style = getComputedStyle(content, null)
+     // console.log(wrapper_style.height)
+     // console.log(content_style.height)
+     // console.log(article_style.height)
+}

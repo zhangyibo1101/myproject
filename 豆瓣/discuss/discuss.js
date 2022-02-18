@@ -8,20 +8,20 @@ moviename.innerHTML=movie.Name
 let submit = document.querySelector('.submit');
 let texts = document.querySelectorAll('textarea');
 let mytoken = sessionStorage.getItem('token');
-let num=sessionStorage.getItem('num');
+console.log(mytoken);
 let basicURL='';
 // 评分功能
 const tomarks=new Marks('marks',0.5,-1)
 tomarks.start();
 //影评、讨论双功能
 let png=document.querySelector('header img');
-if(sessionStorage.getItem('iscommend')){
+if(sessionStorage.getItem('iscommend')=='true'){
     png.src='./commend.png'
     submit.addEventListener('click', () => {
         let formdata = new FormData();
         formdata.append('context', texts[0].value+'，'+texts[1].value)
-        formdata.append('star_num',(tomarks.num+1)*2)//待实现
-        fetch('http://42.192.155.29:8080/filmcomment/'+num, {
+        formdata.append('star_num',(tomarks.num+1)*2)
+        fetch('http://42.192.155.29:8080/filmcomment/'+movie.Id, {
             method: 'POST',
             headers: {
                 token: mytoken
@@ -36,7 +36,7 @@ if(sessionStorage.getItem('iscommend')){
     submit.addEventListener('click', () => {
         let formdata = new FormData();
         formdata.append('context', texts[0].value + "，" + texts[1].value)
-        fetch('http://42.192.155.29:8080/topic/'+num, {
+        fetch('http://42.192.155.29:8080/topic/'+movie.Id, {
             method: 'POST',
             headers: {
                 token: mytoken

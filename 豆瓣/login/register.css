@@ -263,3 +263,24 @@ button {
     width: 36px;
     height: 36px;
 }
+.form3 {
+    display: none;
+}
+.myusername {
+    border: 1px solid #ececec;
+    width: 120px;
+    height: 30px;
+}
+.myanswer {
+    width: 150px;
+    height: 30px;
+    border: 1px solid #ececec;
+}
+.mynew {
+    width: 130px;
+    height: 30px;
+    border: 1px solid #ececec;
+}
+.form3 li { 
+    margin-bottom: 20px;
+}

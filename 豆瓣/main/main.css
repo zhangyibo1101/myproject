@@ -1,6 +1,11 @@
+@media screen and (max-width: 1024px){
+    body {
+        width: 1024px;
+    }
+}
+
 /* header部分 */
 header {
-    position: relative;
     height: 28px;
     background-color: #545652;
 }
@@ -16,6 +21,7 @@ header {
     height: 28px;
     padding: 0 12px;
     margin-right: 12px;
+    position: relative;
 }
 
 .header_right2 {
@@ -49,7 +55,7 @@ header {
     height: 476px;
     background-color: white;
     position: absolute;
-    left: 1180px;
+    right: 5px;
     top: 28px;
     border: 1px solid #d5d5d5;
 }

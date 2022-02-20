@@ -4,8 +4,11 @@ import {
 import {
     Marks
 } from '../mymodule/marks.js'
+import {
+    Updown
+} from '../mymodule/updown.js'
 let movie_id = sessionStorage.getItem('movieid')
-
+let mytoken = sessionStorage.getItem('token');
 //接受电影基本数据
 window.onload = async function () {
     let movie;
@@ -14,7 +17,7 @@ window.onload = async function () {
         }).then(res => res.json())
         .then(res => {
             movie = res.data;
-            sessionStorage.setItem('movie',JSON.stringify(res))
+            sessionStorage.setItem('movie', JSON.stringify(res))
         })
     //电影图、电影名
     let mv = document.getElementById('mv');
@@ -110,13 +113,25 @@ window.onload = async function () {
         <a href="#">${item.Name}</a>
         <div class="stars" id="short_star${item.id}"></div>
         <span class="clock">${item.CommentTime}</span>
-        <a href="#" class="usea">有用</a>
+        <div class="usea">有用</div>
         <span class="usenum">${item.Likes}</span>
     </li>
     <li>${item.Context}</li>
 </ul>`
                 let star2 = new Star(`short_star${item.id}`, item.StarNum, 0.5);
                 star2.create();
+            })
+            return res;
+        }).then(res=>{
+            let usea=document.querySelectorAll('.usea');
+            let usenum=document.querySelectorAll('.usenum');
+            res.data.map((item,index)=>{
+                let up=new Updown(usea[index],usenum[index],item.Likes,'http://42.192.155.29:8080/shortcomment/likes/'+item.id)
+                if(mytoken){
+                    up.add();
+                }else {
+                    up.remove();
+                }
             })
         })
     //接受影评数据
@@ -136,17 +151,32 @@ window.onload = async function () {
     <li><a href="#">${item.context.split('，')[0]}</a></li>
     <li>${item.context}</li>
     <li>
-        <a href="#">up:${item.likes}</a>
-        <a href="#">down:${item.star_num}</a>
+        <div id="myup">up:<div>${item.likes}</div></div>
+        <div id="mydown">down:<div>${item.down}</div></div>
         <a href="#">${item.comment_num}回应</a>
     </li>
 </ul>`
                 let star1 = new Star(`movie_star${item.id}`, item.star_num, 0.5);
                 star1.create();
             })
+            return res;
+        }).then(res => {
+            let myups = document.querySelectorAll('#myup');
+            let changeup= document.querySelectorAll('#myup div');
+            let mydowns = document.querySelectorAll('#mydown');
+            let changedown = document.querySelectorAll('#mydown div');
+            res.data.map((item, index) => {
+                  let up= new Updown(myups[index],changeup[index],item.likes,'http://42.192.155.29:8080/filmcomment/likes/'+item.id);
+                  let down= new Updown(mydowns[index],changedown[index],item.down,'http://42.192.155.29:8080/filmcomment/down/'+item.id)
+                   if(mytoken){
+                    up.add();
+                    down.add();
+                }else {
+                    up.remove();
+                    down.remove();
+                }
+            })
         })
-
-
 
     //讨论区
     let basicURL = '';
@@ -206,7 +236,6 @@ window.onload = async function () {
     let gact = document.querySelector('.gact')
     let wanttowatch = document.getElementById('wanttowatch');
     let havewatch = document.getElementById('havewatch');
-    let mytoken = sessionStorage.getItem('token');
     let save = document.getElementById('save');
 
     let smalltips = document.querySelector('.smalltips');
@@ -265,20 +294,14 @@ window.onload = async function () {
         smalltips.innerHTML = '添加收藏：我看过这部电影';
         havewatch.checked = 'checked';
     })
+    //动态更新背景
+    let wrapper = document.querySelector('.wrapper');
+    let content = document.querySelector('.content');
+    let article = document.querySelector('article');
 
-     //动态更新背景
-     let wrapper = document.querySelector('.wrapper');
-     let content = document.querySelector('.content');
-     let article = document.querySelector('article');
- 
-     article.style.height = 'auto'
- 
-     let article_style = getComputedStyle(article, null)
-     content.style.height = article_style.height
-     wrapper.style.height = article_style.height
-     // let wrapper_style = getComputedStyle(wrapper, null)
-     // let content_style = getComputedStyle(content, null)
-     // console.log(wrapper_style.height)
-     // console.log(content_style.height)
-     // console.log(article_style.height)
+    article.style.height = 'auto'
+
+    let article_style = getComputedStyle(article, null)
+    content.style.height = article_style.height
+    wrapper.style.height = article_style.height
 }

@@ -3,10 +3,9 @@ let login = document.querySelector('.header_right1 a');
 let myself = document.querySelector('.myself');
 let quit = document.getElementById('quit');
 let mine = document.getElementById('mine');
-let token = sessionStorage.getItem('token');
+let mytoken = sessionStorage.getItem('token');
 let basicURL='';
-// console.log(token)
-if (username) {
+if (mytoken) {
     login.innerHTML = username + '你好！';
     login.href = '#';
     login.addEventListener('click', (e) => {
@@ -17,7 +16,7 @@ if (username) {
         myself.style.display = 'none';
     })
     quit.addEventListener('click', () => {
-        sessionStorage.removeItem('username');
+        sessionStorage.removeItem('token');
         window.location.replace('/main/main.html');
     })
     mine.addEventListener('click', () => {

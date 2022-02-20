@@ -3,7 +3,11 @@
     padding: 0;
     box-sizing: inherit;
 }
-
+@media screen and (max-width: 1024px){
+    body {
+        width: 1024px;
+    }
+}
 html {
     box-sizing: border-box;
 }

@@ -1,3 +1,8 @@
+@media screen and (max-width: 1024px){
+    body {
+        width: 1024px;
+    }
+}
 a {
     color: #37a;
     text-decoration: none;
@@ -244,6 +249,9 @@ button {
 
 .usea {
     float: right;
+    font-size: 13px;
+    color: #37a;
+    cursor: pointer;
 }
 
 /* 影评 */
@@ -302,13 +310,18 @@ button {
     margin: 15px 0;
 }
 
-.movie li:nth-child(4) a:first-child,
-.movie li:nth-child(4) a:nth-child(2) {
+#myup,#mydown {
     display: inline-block;
     padding: 4px 6px;
     margin-right: 4px;
     border-radius: 2px;
     background-color: #f0f7f9;
+    font-size: 12px;
+    cursor: pointer;
+    color: #3377aa;
+}
+#myup div,#mydown div {
+    display: inline-block;
 }
 
 /* 讨论区 */
